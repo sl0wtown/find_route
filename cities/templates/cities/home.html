@@ -52,7 +52,7 @@
 
             <li class="page-item">
                 {% if page_obj.has_next %}
-                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Next">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span></a>
 
                 {% endif %}
@@ -63,7 +63,7 @@
     </nav>
     <div class="row">
         <div class="col-md-4">
-            <form action="" method="post"> {% csrf_token %}
+            <form action="{% url 'cities:create' %}" method="post"> {% csrf_token %}
 
                 {{ form.as_p }}
                 <input type="submit" value="Submit">
