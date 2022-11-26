@@ -66,7 +66,7 @@ class CityDeleteView(DeleteView):
 
 
 class CityListView(ListView):
-    paginate_by = 3
+    paginate_by = 6
     model = City
     template_name = 'cities/home.html'
 
