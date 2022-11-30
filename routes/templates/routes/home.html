@@ -2,7 +2,46 @@
 {% block title %}Пошук маршрута{% endblock %}
 {% block content %}
     <h1>Пошук маршрута</h1>
+    <div class="row">
+        <div class="col-m-8 mx-auto">
+            {% if routes %}
+                <h3>Маршрут{% if routes|length != 1 %}и{% endif %}
+                    з м. {{ cities.from_city }} в м. {{ cities.to_city }} </h3>
+                <br>
+                {% for route in routes %}
 
-    {% include "form.html" with button='Знайти' %}
+                    {% if forloop.first %}
+                        <h4>Найкорочший маршрут</h4>
+                    {% endif %}
+                    <h5>Час в дорозі {{ route.total_time }}</h5>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Список поїздів по цьому маршруту</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for train in route.trains %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>Поїзд {{ train.name }} з {{ train.from_city.name }}
+                                в {{ train.to_city.name }}</td>
+
+                        </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                    <br><br>
+
+
+                {% endfor %}
+
+            {% endif %}
+        </div>
+    </div>
+    {% url 'find_routes' as action %}
+    {% include "form.html" with button='Знайти' action=action %}
 
 {% endblock %}

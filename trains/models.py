@@ -17,7 +17,7 @@ class Train(models.Model):
                                 verbose_name='В яке місто')
 
     def __str__(self):
-        return f'Поїзд №{self.name} з міста {self.from_city}'
+        return f'Поїзд №{self.name} з {self.from_city} в {self.to_city}'
 
     class Meta:
         verbose_name = 'Поїзд'
