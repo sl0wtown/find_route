@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Створення Маршрута{% endblock %}
+{% block content %}
+    <h1>Створення Маршрута</h1>
 
-</body>
-</html>
+    {% url 'save_route' as action %}
+    {% include "form.html" with button='Зберегти' action=action %}
+{% endblock %}
