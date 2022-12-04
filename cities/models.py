@@ -3,6 +3,7 @@ from django.urls import reverse
 
 
 class City(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, unique=True, verbose_name='Місто')
 
     def __str__(self):

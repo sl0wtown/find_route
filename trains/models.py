@@ -5,6 +5,7 @@ from cities.models import City
 
 
 class Train(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, unique=True,
                             verbose_name='Номер поїзда')
     travel_time = models.PositiveSmallIntegerField(verbose_name='Час в дорозі')
@@ -40,6 +41,7 @@ class Train(models.Model):
 
 
 class TrainTest(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, unique=True,
                             verbose_name='Номер поїзда')
     from_city = models.ForeignKey(City, on_delete=models.CASCADE,
