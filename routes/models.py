@@ -4,6 +4,7 @@ from cities.models import City
 
 
 class Route(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50, unique=True,
                             verbose_name='Назва маршрута')
     travel_times = models.PositiveSmallIntegerField(
